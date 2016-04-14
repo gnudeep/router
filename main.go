@@ -61,7 +61,9 @@ func main() {
 	fmt.Printf("Server Port: %s\n", fmt.Sprint(":", serverConf.Server.Port))
 
 	http.HandleFunc(serverConf.Server.Context, handler)
-	http.ListenAndServe(fmt.Sprint(":", serverConf.Server.Port), nil)
+	go http.ListenAndServe(fmt.Sprint(":", serverConf.Server.Port), nil)
+	var input string
+	fmt.Scanln(&input)
 
 }
 
